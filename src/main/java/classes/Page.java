@@ -235,4 +235,25 @@ public class Page {
       return false;
     }
   }
+
+
+  public WebElement findElementByXpath(String path, int timeout) throws Exception {
+    try {
+      changeImplicitlyWait(driver, timeout);
+      WebElement element = driver.findElement(By.xpath(path));
+      restoreImplicitlyWait(driver);
+      return element;
+    } catch (Exception e) {
+      restoreImplicitlyWait(driver);
+      throw new Exception("Error al buscar elemento por xpath : " + path + " . Error : " + e);
+    }
+  }
+
+  public WebElement findElementByXpath(String path) throws Exception {
+    try {
+      return findElementByXpath(path, Constant.TIMEOUT_MIL_45000);
+    } catch (Exception e) {
+      throw new Exception(e);
+    }
+  }
 }
