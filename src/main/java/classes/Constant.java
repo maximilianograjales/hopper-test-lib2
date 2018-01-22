@@ -31,4 +31,5 @@ public class Constant {
   public static final int TIMEOUT_MIL_60000 = 60000;
   public static final int TIMEOUT_MIL_120000 = 120000;
 
+
 }
